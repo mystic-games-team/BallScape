@@ -43,7 +43,6 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 worldPoint = cam.ScreenToWorldPoint(Input.mousePosition);
             Vector2 direction = new Vector2(worldPoint.x, worldPoint.y) - ball.position;
-            print(worldPoint);
             ball.AddForce(direction.normalized * force, ForceMode2D.Force);
         }
     }
