@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -188,6 +189,11 @@ public class UIManager : MonoBehaviour
         continueLeaderboard.interactable = false;
         scoreText.text = UIHUDKills.get.currentKills.ToString();
         UpdateLeaderboard();
+    }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
 
