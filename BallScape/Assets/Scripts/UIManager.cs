@@ -29,6 +29,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] float deadMenuAnimTime = 0.5f;
     [SerializeField] float alphaDeadMenuLimit = 0.9f;
 
+    [Header("Main Menu")]
+    [SerializeField] CanvasGroup mainMenuCG;
+
     private void Awake()
     {
         get = this;
@@ -180,7 +183,12 @@ public class UIManager : MonoBehaviour
             bi.SetBoard(username, score);
         }
 
-        deadMenu.gameObject.SetActive(false);
+        if (deadMenu) 
+            deadMenu.gameObject.SetActive(false);
+
+        if (mainMenuCG)
+            mainMenuCG.interactable = false;
+
         leaderboardMenu.SetActive(true);
     }
 
@@ -193,7 +201,27 @@ public class UIManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void MainMenuLeaderBoard()
+    {
+        if (board.childCount > 1)
+        {
+            for (int i = 0; i < board.childCount; ++i)
+            {
+                Destroy(board.GetChild(i).gameObject);
+            }
+        }
+
+        UpdateLeaderboard();
+    }
+
+    public void CloseLeaderboard()
+    {
+        mainMenuCG.interactable = true;
+        leaderboardMenu.SetActive(false);
     }
 }
 
