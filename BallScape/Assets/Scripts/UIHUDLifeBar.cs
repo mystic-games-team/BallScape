@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine.UI;
 
 public class UIHUDLifeBar : MonoBehaviour
 {
+    public static UIHUDLifeBar get { get; private set; }
+
     [Header("Life Quads Settings")]
     [SerializeField] GameObject lifeQuad;
     [SerializeField] GameObject lifeQuadsParent;
@@ -16,6 +19,11 @@ public class UIHUDLifeBar : MonoBehaviour
     [SerializeField] int maxLife = 10;
 
     private List<GameObject> lifes = new List<GameObject>();
+
+    private void Awake()
+    {
+        get = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +59,7 @@ public class UIHUDLifeBar : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F2))
         {
-            DecreaseLifes(4);
+            PlayerController.get.RecieveDamage(4);
         }
     }
 #endif
@@ -70,12 +78,12 @@ public class UIHUDLifeBar : MonoBehaviour
         }
     }
     
-    public bool DecreaseLife()
+    public void DecreaseLife(Action callbackOnDead)
     {
-        return DecreaseLifes(1);
+        DecreaseLifes(1, callbackOnDead);
     }
 
-    public bool DecreaseLifes(int amout)
+    public void DecreaseLifes(int amout, Action callbackOnDead)
     {
         int min = Mathf.Min(amout, lifes.Count);
         for (int i = 0; i < min; ++i)
@@ -84,6 +92,10 @@ public class UIHUDLifeBar : MonoBehaviour
             lifes.RemoveAt(lifes.Count - 1);
             Destroy(life);
         }
-        return lifes.Count == 0;
+
+        if (lifes.Count == 0)
+        {
+            callbackOnDead?.Invoke();
+        }
     }
 }

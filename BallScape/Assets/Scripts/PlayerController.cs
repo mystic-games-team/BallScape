@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    static public PlayerController get { private set; get; }
+
     [Header("Movement")]
     [SerializeField]
     float speed = 5.0f;
@@ -17,6 +19,11 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer sprite;
     Camera camera;
+
+    private void Awake()
+    {
+        get = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -52,5 +59,30 @@ public class PlayerController : MonoBehaviour
             rb.position += direction.normalized * Time.fixedDeltaTime * speed;
             rb.rotation = Vector2.SignedAngle(Vector2.down, direction.normalized);
         }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.CompareTo("Enemy") == 0)
+        {
+            RecieveDamage(collision.gameObject.GetComponent<Enemy>().damageOnHit);
+        }
+        else if (collision.gameObject.tag.CompareTo("Projectile") == 0)
+        {
+
+        }
+    }
+
+    public void RecieveDamage(int damage)
+    {
+        // TODO: active anim
+
+        UIHUDLifeBar.get.DecreaseLifes(damage, OnDead);
+    }
+
+
+    void OnDead()
+    {
+
     }
 }
