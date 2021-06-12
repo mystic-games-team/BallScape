@@ -53,7 +53,7 @@ public class UIManager : MonoBehaviour
 
             deadMenu.alpha = t < 1 ? t : 1;
             float a = redBackground.color.a;
-            redBackground.color = new Color(1, 1, 1, a += Time.unscaledDeltaTime * 0.9f);
+            redBackground.color = new Color(1, 1, 1, a += Time.unscaledDeltaTime * alphaDeadMenuLimit);
             song.volume = Mathf.Lerp(startVolume, 0, t < 1 ? t : 1);
 
             yield return null;
