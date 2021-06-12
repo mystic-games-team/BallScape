@@ -35,7 +35,7 @@ public class EnemyManager : MonoBehaviour
         while (PlayerController.get.enabled)
         {
             SpawnRandomEnemy();
-            yield return new WaitForSecondsRealtime(Random.Range(0.5F, 2.0F));
+            yield return new WaitForSecondsRealtime(Random.Range(2.5F, 6.0F));
         }
     }
 
