@@ -790,7 +790,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 500d4470adeeb824ab078a5d92372428, type: 3}
-    m_FontSize: 39
+    m_FontSize: 30
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
@@ -801,7 +801,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LEADERBOARD
+  m_Text: LEADERBOARD TO 10
 --- !u!222 &305061680
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2163,6 +2163,7 @@ MonoBehaviour:
   scoreText: {fileID: 0}
   deadMenuAnimTime: 0.5
   alphaDeadMenuLimit: 0.9
+  audioOnLose: {fileID: 0}
   mainMenuCG: {fileID: 1444087487}
 --- !u!1 &1575128824
 GameObject:
