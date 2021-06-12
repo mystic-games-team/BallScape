@@ -24,10 +24,22 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(Spawn());
+        StartCoroutine(Spawn());
+        StartCoroutine(Spawn());
+        StartCoroutine(Spawn());
     }
 
-    // Update is called once per frame
+    IEnumerator Spawn()
+    {
+        while (PlayerController.get.enabled)
+        {
+            SpawnRandomEnemy();
+            yield return new WaitForSecondsRealtime(Random.Range(0.5F, 2.0F));
+        }
+    }
+
+#if UNITY_EDITOR
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -35,6 +47,7 @@ public class EnemyManager : MonoBehaviour
             SpawnRandomEnemy();
         }
     }
+#endif
 
     public void SpawnRandomEnemy()
     {
