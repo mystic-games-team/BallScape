@@ -123,5 +123,6 @@ public class PlayerController : MonoBehaviour
     void OnDead()
     {
         enabled = false;
+        UIManager.get.ShowDeadMenu();
     }
 }
