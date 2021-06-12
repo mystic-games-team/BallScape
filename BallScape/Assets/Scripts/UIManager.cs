@@ -110,8 +110,14 @@ public class UIManager : MonoBehaviour
                     }
                     else
                     {
-                        // TODO: Update Local Leaderboard to show new score
                         sumbitScore.gameObject.SetActive(false);
+
+                        for (int i = 0; i < board.childCount; ++i)
+                        {
+                            Destroy(board.GetChild(i).gameObject);
+                        }
+
+                        UpdateLeaderboard();
                     }
                 }
             }
