@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Color colorDamage;
     [SerializeField] float damageCooldown = 2.0F;
 
-    Rigidbody2D rb;
+    [HideInInspector] public Rigidbody2D rb;
     SpriteRenderer sprite;
     Camera camera;
     Coroutine currentColorCoroutine = null;
@@ -70,9 +70,13 @@ public class PlayerController : MonoBehaviour
         {
             RecieveDamage(collision.gameObject.GetComponent<Enemy>().damageOnHit);
         }
-        else if (collision.gameObject.tag.CompareTo("Projectile") == 0)
-        {
+    }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.CompareTo("Projectile") == 0)
+        {
+            RecieveDamage(1);
         }
     }
 

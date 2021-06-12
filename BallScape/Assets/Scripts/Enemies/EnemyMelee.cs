@@ -19,7 +19,7 @@ public class EnemyMelee : Enemy
             return;
         }
 
-        Vector3 direction = (PlayerController.get.transform.position - transform.position).normalized;
+        Vector3 direction = (PlayerController.get.rb.position - rigidbody.position).normalized;
         if (direction != Vector3.zero)
         {
             rigidbody.position += new Vector2(direction.x, direction.y).normalized * Time.fixedDeltaTime * speed;
