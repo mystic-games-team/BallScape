@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     [Header("Variables")]
     [SerializeField]
     float speed = 5.0f;
+    [SerializeField]
+    ScriptableObject behaviour;
 
     Rigidbody2D rb;
     SpriteRenderer sprite;
@@ -21,7 +23,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     private void FixedUpdate()
