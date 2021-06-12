@@ -10,14 +10,14 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("GamePlay");
     }
 
-    public void ItchIO()
+    public void LinkedInOriol()
     {
-        Application.OpenURL("https://victorgg-11.itch.io/ballscape");
+        Application.OpenURL("https://www.linkedin.com/in/oriol-capdevila/");
     }
 
-    public void ExitGame()
+    public void LinkedInVictor()
     {
-        Application.Quit();
+        Application.OpenURL("https://www.linkedin.com/in/victorsegurablanco/");
     }
 
     public void Leaderboard()
