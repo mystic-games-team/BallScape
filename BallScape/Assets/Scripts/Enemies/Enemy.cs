@@ -38,11 +38,16 @@ public class Enemy : MonoBehaviour
 
     protected bool CanUpdate()
     {
-        return currentLife > 0;
+        return currentLife > 0 && PlayerController.get.enabled;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (!PlayerController.get.enabled)
+        {
+            return;
+        }
+
         if (collision.gameObject.tag.CompareTo("Ball") == 0)
         {
             DecreaseLife(1);
