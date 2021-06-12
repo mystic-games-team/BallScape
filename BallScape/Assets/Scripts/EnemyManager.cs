@@ -11,6 +11,8 @@ public class EnemyManager : MonoBehaviour
     GameObject[] enemiesGO;
     [SerializeField]
     Collider2D[] spawnZones;
+    [SerializeField]
+    Sprite[] enemiesSprites;
 
     List<Enemy> enemies = new List<Enemy>();
 
@@ -40,6 +42,7 @@ public class EnemyManager : MonoBehaviour
         Vector3 localPos = new Vector3(Random.Range(0.0f, collider.bounds.size.x), Random.Range(0.0f, collider.bounds.size.y));
         Vector3 position = collider.transform.position + localPos - collider.bounds.size * 0.5f;
         enemies.Add(Instantiate(enemiesGO[Random.Range(0, enemiesGO.Length)], position, enemiesGO[0].transform.rotation, null).GetComponent<Enemy>());
+        enemies[enemies.Count - 1].GetComponent<SpriteRenderer>().sprite = enemiesSprites[Random.Range(0, enemiesSprites.Length)];
     }
 
     public void DeleteEnemy(Enemy enemy)
