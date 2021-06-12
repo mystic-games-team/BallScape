@@ -28,6 +28,7 @@ public class UIManager : MonoBehaviour
     [Header("Values")]
     [SerializeField] float deadMenuAnimTime = 0.5f;
     [SerializeField] float alphaDeadMenuLimit = 0.9f;
+    [SerializeField] AudioClip audioOnLose;
 
     private void Awake()
     {
@@ -61,6 +62,10 @@ public class UIManager : MonoBehaviour
         }
 
         deadMenu.interactable = true;
+
+        song.clip = audioOnLose;
+        song.Play();
+        song.volume = 0.5F;
     }
 
     public void BlockStrangeChars(InputField inputField)
