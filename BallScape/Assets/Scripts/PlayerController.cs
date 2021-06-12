@@ -16,9 +16,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Rigidbody2D ball;
     [SerializeField] float force = 10.0F;
 
+    [Header("Damage")]
+    [SerializeField] Color colorDamage;
+    [SerializeField] float damageCooldown = 2.0F;
+
     Rigidbody2D rb;
     SpriteRenderer sprite;
     Camera camera;
+    Coroutine currentColorCoroutine = null;
 
     private void Awake()
     {
@@ -75,11 +80,43 @@ public class PlayerController : MonoBehaviour
 
     public void RecieveDamage(int damage)
     {
-        // TODO: active anim
-
-        UIHUDLifeBar.get.DecreaseLifes(damage, OnDead);
+        if (currentColorCoroutine == null)
+        {
+            currentColorCoroutine = StartCoroutine(ChangeLifeAnimation(colorDamage));
+            UIHUDLifeBar.get.DecreaseLifes(damage, OnDead);
+        }
     }
 
+    IEnumerator ChangeLifeAnimation(Color animColor)
+    {
+        int cycles = 2;
+        int currentCycles = 0;
+        float timeStart = Time.time;
+
+        while (currentCycles < cycles)
+        {
+            while (Time.time - timeStart < damageCooldown / cycles)
+            {
+                float t = (Time.time - timeStart) / 0.4f;
+
+                if (t <= 0.5f)
+                {
+                    sprite.color = Color.Lerp(Color.white, animColor, t * 2);
+                }
+                else if (t > 0.5f)
+                {
+                    sprite.color = Color.Lerp(animColor, Color.white, (t - 0.5f) * 2);
+                }
+
+                yield return null;
+            }
+
+            timeStart = Time.time;
+            ++currentCycles;
+        }
+
+        currentColorCoroutine = null;
+    }
 
     void OnDead()
     {
