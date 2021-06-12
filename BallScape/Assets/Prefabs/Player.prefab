@@ -576,7 +576,7 @@ GameObject:
   - component: {fileID: 2188268178232234446}
   - component: {fileID: 2188268178232234443}
   - component: {fileID: 2188268178232234440}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -612,6 +612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  behaviour: {fileID: 0}
   ball: {fileID: 4307842081562596749}
   force: 80000
 --- !u!212 &2188268178232234446
