@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
             GetComponent<Collider2D>().enabled = false;
             UIHUDKills.get.AddKill();
+            StartCoroutine(Die());
         }
     }
 
@@ -40,6 +41,27 @@ public class Enemy : MonoBehaviour
     protected bool CanUpdate()
     {
         return currentLife > 0 && PlayerController.get.enabled;
+    }
+
+    IEnumerator Die()
+    {
+        yield return new WaitForSecondsRealtime(1.5F);
+
+        SpriteRenderer sprite = gameObject.GetComponent<SpriteRenderer>();
+        SpriteRenderer childSprite = null;
+        if (gameObject.transform.childCount > 1)
+        {
+            childSprite = gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>();
+        }
+
+        while (sprite.color.a > 0)
+        {
+            sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, sprite.color.a - Time.deltaTime);
+            if (childSprite != null) childSprite.color = new Color(childSprite.color.r, childSprite.color.g, childSprite.color.b, childSprite.color.a - Time.deltaTime);
+            yield return null;
+        }
+
+        EnemyManager.instance.DeleteEnemy(this);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
