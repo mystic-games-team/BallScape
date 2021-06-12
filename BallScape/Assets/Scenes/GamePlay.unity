@@ -1109,7 +1109,7 @@ PrefabInstance:
     - target: {fileID: 542474528, guid: 901ff2b0c8e684046a312b8d98ab4165, type: 3}
       propertyPath: audioOnLose
       value: 
-      objectReference: {fileID: 8300000, guid: a9d53fbe85828c340abed89af85f6d7a, type: 3}
+      objectReference: {fileID: 8300000, guid: 30d53ed4de921a540a63f6d2f7dced7e, type: 3}
     - target: {fileID: 6532161148585771695, guid: 901ff2b0c8e684046a312b8d98ab4165, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
