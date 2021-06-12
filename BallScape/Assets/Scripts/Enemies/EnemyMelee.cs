@@ -14,6 +14,11 @@ public class EnemyMelee : Enemy
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!CanUpdate())
+        {
+            return;
+        }
+
         Vector3 direction = (PlayerController.get.transform.position - transform.position).normalized;
         if (direction != Vector3.zero)
         {

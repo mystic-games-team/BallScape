@@ -9,8 +9,6 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     [SerializeField]
     float speed = 5.0f;
-    [SerializeField]
-    ScriptableObject behaviour;
 
     [Header("Ball")]
     [SerializeField] Rigidbody2D ball;

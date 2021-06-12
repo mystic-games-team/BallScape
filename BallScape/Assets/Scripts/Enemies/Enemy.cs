@@ -18,15 +18,33 @@ public class Enemy : MonoBehaviour
         currentLife = maxLife;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    void DecreaseLife(int amount)
     {
-        
+        currentLife -= amount;
+        if (currentLife <= 0)
+        {
+            GetComponent<Collider2D>().enabled = false;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnBecameInvisible()
     {
-       
+        if (currentLife <= 0)
+        {
+            EnemyManager.instance.DeleteEnemy(this);
+        }
+    }
+
+    protected bool CanUpdate()
+    {
+        return currentLife > 0;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.CompareTo("Ball") == 0)
+        {
+            DecreaseLife(1);
+        }
     }
 }

@@ -48,5 +48,7 @@ public class EnemyManager : MonoBehaviour
         {
             enemies.Remove(enemy);
         }
+
+        Destroy(enemy.gameObject);
     }
 }

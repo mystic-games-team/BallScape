@@ -579,7 +579,7 @@ GameObject:
   - component: {fileID: 77331044}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -613,7 +613,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  behaviour: {fileID: 0}
   ball: {fileID: 4307842081562596749}
   force: 80000
   colorDamage: {r: 1, g: 0, b: 0, a: 1}
@@ -1389,7 +1388,7 @@ GameObject:
   - component: {fileID: 6743890599233593234}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
