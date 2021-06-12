@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
         if (currentLife <= 0)
         {
             GetComponent<Collider2D>().enabled = false;
+            UIHUDKills.get.AddKill();
         }
     }
 

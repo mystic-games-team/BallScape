@@ -962,10 +962,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIHUD
       objectReference: {fileID: 0}
-    - target: {fileID: 8173832975325330391, guid: 901ff2b0c8e684046a312b8d98ab4165, type: 3}
-      propertyPath: m_Color.a
-      value: 0.4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 901ff2b0c8e684046a312b8d98ab4165, type: 3}
 --- !u!1 &1503845024
@@ -1060,11 +1056,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3925880476170668945, guid: 4ffba5df0ebe6214e868d293467a98b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.00000047683716
+      value: -0.00000023841858
       objectReference: {fileID: 0}
     - target: {fileID: 3925880476490406218, guid: 4ffba5df0ebe6214e868d293467a98b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.00000047683716
+      value: -0.00000023841858
       objectReference: {fileID: 0}
     - target: {fileID: 3925880476490406219, guid: 4ffba5df0ebe6214e868d293467a98b9, type: 3}
       propertyPath: m_Follow
