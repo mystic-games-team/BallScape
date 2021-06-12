@@ -9,4 +9,14 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("GamePlay");
     }
+
+    public void ItchIO()
+    {
+        Application.OpenURL("https://victorgg-11.itch.io/ballscape");
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
