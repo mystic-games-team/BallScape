@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
         currentLife -= amount;
         if (currentLife <= 0)
         {
+            gameObject.transform.GetChild(0).gameObject.SetActive(true);
             GetComponent<Collider2D>().enabled = false;
             UIHUDKills.get.AddKill();
         }

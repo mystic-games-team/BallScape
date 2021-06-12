@@ -303,25 +303,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3314767059649044151, guid: aecf8e3be05dc8c43b3eed3355ea4aa9, type: 3}
-      propertyPath: speed
-      value: 2
+    - target: {fileID: 153302047698102589, guid: aecf8e3be05dc8c43b3eed3355ea4aa9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3314767059649044151, guid: aecf8e3be05dc8c43b3eed3355ea4aa9, type: 3}
-      propertyPath: chargeTime
-      value: 0.5
+    - target: {fileID: 153302047698102589, guid: aecf8e3be05dc8c43b3eed3355ea4aa9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3314767059649044151, guid: aecf8e3be05dc8c43b3eed3355ea4aa9, type: 3}
-      propertyPath: bulletForce
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314767059649044151, guid: aecf8e3be05dc8c43b3eed3355ea4aa9, type: 3}
-      propertyPath: shootingCooldown
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314767059649044151, guid: aecf8e3be05dc8c43b3eed3355ea4aa9, type: 3}
-      propertyPath: shootingDistance
-      value: 8
+    - target: {fileID: 7956831896771946809, guid: aecf8e3be05dc8c43b3eed3355ea4aa9, type: 3}
+      propertyPath: m_Name
+      value: DeadParticles
       objectReference: {fileID: 0}
     - target: {fileID: 8247665593118370628, guid: aecf8e3be05dc8c43b3eed3355ea4aa9, type: 3}
       propertyPath: m_Name
@@ -370,6 +362,22 @@ PrefabInstance:
     - target: {fileID: 8247665593118370633, guid: aecf8e3be05dc8c43b3eed3355ea4aa9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8989686792740485378, guid: aecf8e3be05dc8c43b3eed3355ea4aa9, type: 3}
+      propertyPath: ShapeModule.angle
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8989686792740485378, guid: aecf8e3be05dc8c43b3eed3355ea4aa9, type: 3}
+      propertyPath: ShapeModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8989686792740485378, guid: aecf8e3be05dc8c43b3eed3355ea4aa9, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8989686792740485378, guid: aecf8e3be05dc8c43b3eed3355ea4aa9, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aecf8e3be05dc8c43b3eed3355ea4aa9, type: 3}
@@ -743,7 +751,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &877879357 stripped
 GameObject:
@@ -764,7 +772,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ConfineMode: 0
   m_BoundingVolume: {fileID: 0}
-  m_BoundingShape2D: {fileID: 2120574022}
+  m_BoundingShape2D: {fileID: 0}
   m_ConfineScreenEdges: 1
   m_Damping: 0
 --- !u!1 &1115363391
