@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector] public Rigidbody2D rb;
     SpriteRenderer sprite;
-    Camera camera;
+    Camera cam;
     Coroutine currentColorCoroutine = null;
 
     private void Awake()
@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
-        camera = Camera.allCameras[0];
+        cam = Camera.allCameras[0];
     }
 
     // Update is called once per frame
@@ -41,8 +41,9 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Vector3 worldPoint = camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y));
+            Vector3 worldPoint = cam.ScreenToWorldPoint(Input.mousePosition);
             Vector2 direction = new Vector2(worldPoint.x, worldPoint.y) - ball.position;
+            print(worldPoint);
             ball.AddForce(direction.normalized * force, ForceMode2D.Force);
         }
     }
