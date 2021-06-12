@@ -11,8 +11,7 @@ if (!$conn)
 }
 else
 {
-    $sql = "INSERT INTO Users (Username, Kills) VALUES ('" . $loginUser . "','" . $killAmmount . "')";
-    $result = $conn->query($sql);
+    $sql = "INSERT INTO Leaderboard (Username, Kills) VALUES ('" . $loginUser . "','" . $killAmmount . "')";
 
     if ($conn->query($sql) === TRUE)
     {

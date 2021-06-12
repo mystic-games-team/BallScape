@@ -8,7 +8,7 @@ if (!$conn)
 }
 else
 {
-    $sql = "SELECT * FROM `Leaderboard` ORDER BY `Leaderboard`.`Kills` ASC LIMIT 10";
+    $sql = "SELECT * FROM `Leaderboard` ORDER BY `Leaderboard`.`Kills` DESC LIMIT 10";
 
     $result = $conn->query($sql);
 

@@ -9,7 +9,8 @@ public class UIHUDKills : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI kills;
 
-    int currentKills = 0;
+    [HideInInspector]
+    public int currentKills = 0;
 
     private void Awake()
     {
