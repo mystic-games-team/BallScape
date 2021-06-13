@@ -1249,7 +1249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 707456062, guid: 901ff2b0c8e684046a312b8d98ab4165, type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6532161148585771695, guid: 901ff2b0c8e684046a312b8d98ab4165, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1645,6 +1645,10 @@ PrefabInstance:
     - target: {fileID: 2188268178232234447, guid: 62259668aea89104a8505d6e6564ff22, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307842081562596749, guid: 62259668aea89104a8505d6e6564ff22, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62259668aea89104a8505d6e6564ff22, type: 3}
