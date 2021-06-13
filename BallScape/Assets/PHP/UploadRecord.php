@@ -1,5 +1,7 @@
 <?php
 
+header("Access-Control-Allow-Origin: *");
+
 $conn = mysqli_connect("localhost", "id17037195_ballscapeinfo", "pJsbv}mA&847l?v1", "id17037195_ballscape");
 
 $loginUser = $_POST["username"];

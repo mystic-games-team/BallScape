@@ -100,37 +100,37 @@ public class UIManager : MonoBehaviour
         w.AddField("username", username);
         w.AddField("killAmmount", score);
 
-        using (UnityWebRequest www = UnityWebRequest.Post(url, w))
+        UnityWebRequest www = UnityWebRequest.Post(url, w);
+        yield return www.SendWebRequest();
+
+        if (www.error != null)
         {
-            yield return www.SendWebRequest();
-
-            if (www.error != null)
+            Debug.Log("404 not found");
+        }
+        else
+        {
+            if (www.isDone)
             {
-                Debug.Log("404 not found");
-            }
-            else
-            {
-                if (www.isDone)
+                if (www.downloadHandler.text.Contains("Error"))
                 {
-                    if (www.downloadHandler.text.Contains("Error"))
-                    {
-                        Debug.Log(www.downloadHandler.text);
-                        sumbitScore.interactable = true;
-                    }
-                    else
-                    {
-                        sumbitScore.gameObject.SetActive(false);
+                    Debug.Log(www.downloadHandler.text);
+                    sumbitScore.interactable = true;
+                }
+                else
+                {
+                    sumbitScore.gameObject.SetActive(false);
 
-                        for (int i = 0; i < board.childCount; ++i)
-                        {
-                            Destroy(board.GetChild(i).gameObject);
-                        }
-
-                        UpdateLeaderboard();
+                    for (int i = 0; i < board.childCount; ++i)
+                    {
+                        Destroy(board.GetChild(i).gameObject);
                     }
+
+                    UpdateLeaderboard();
                 }
             }
         }
+
+        www.Dispose();
     }
 
     public void UpdateLeaderboard()
