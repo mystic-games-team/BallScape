@@ -67,6 +67,7 @@ public class EnemyShooter : Enemy
         b.rotation = rigidbody.rotation + 90;
         b.AddForce((PlayerController.get.rb.position - rigidbody.position).normalized * bulletForce);
         currentState = States.Following;
+        CameraEffects.get.ShakeCamera(2, 0.1f);
     }
 
     private void OnBecameVisible()

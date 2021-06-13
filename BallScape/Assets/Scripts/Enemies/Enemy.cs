@@ -74,6 +74,8 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.tag.CompareTo("Ball") == 0)
         {
             DecreaseLife(1);
+
+            CameraEffects.get.ShakeCamera(4, 0.1f);
         }
     }
 }
